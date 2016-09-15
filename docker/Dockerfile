@@ -2,7 +2,7 @@ FROM    microsoft/windowsservercore:10.0.14300.1030
 
 EXPOSE  19080
 
-RUN     Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
+RUN     powershell -Command "Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser"
 
 RUN     mkdir C:\ServiceFabric
 
