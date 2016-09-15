@@ -6,9 +6,11 @@ RUN     powershell -Command "Set-ExecutionPolicy -ExecutionPolicy Unrestricted -
 
 RUN     mkdir C:\ServiceFabric
 
-COPY    ..\Install.ps1 C:\ServiceFabric
-COPY    ..\5.1.156.9590 C:\ServiceFabric
+COPY    ./src/Install.ps1 C:/ServiceFabric
+COPY    ./src/5.1.156.9590 C:/ServiceFabric/5.1.156.9590
 
-RUN     cd \ServiceFabric
+WORKDIR C:\\ServiceFabric
+
+RUN     cd
 
 RUN     powershell -Command .\Install.ps1
