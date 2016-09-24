@@ -1,0 +1,58 @@
+﻿<Settings  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Section Name="ReplicatorSecuritySettings">
+    <Parameter Name="CredentialType" Value="X509" />
+    <Parameter Name="StoreLocation" Value="LocalMachine" />
+    <Parameter Name="StoreName" Value="MY" />
+    <Parameter Name="FindType" Value="FindBySubjectName" />
+    <Parameter Name="FindValue" Value="warp-test-winfabrp-southcentralus.trafficmanager.net" />
+    <Parameter Name="ProtectionLevel" Value="EncryptAndSign" />
+    <Parameter Name="AllowedCommonNames" Value="warp-test-winfabrp-southcentralus.trafficmanager.net" />
+  </Section>
+  <Section Name="AllowedParameters">
+    <Parameter Name="Hosting" Value="ServiceTypeRegistrationTimeout,ServiceTypeDisableFailureThreshold,EnableProcessDebugging,EnableActivateNoWindow,ActivationRetryBackoffInterval,ActivationMaxRetryInterval,RunAsPolicyEnabled,ActivationMaxFailureCount,ActivatedProcessDieOnUnhandledExceptionEnabled,EndpointProviderEnabled,ActivatedProcessDieOnUnhandledExceptionEnabled" />
+    <Parameter Name="Security" Value="ClusterProtectionLevel,NegotiateForWindowsSecurity,ClusterCredentialType,ServerAuthCredentialType" />
+    <Parameter Name="Setup" Value="FabricLogRoot,FabricDataRoot"/>
+    <Parameter Name="Diagnostics" Value="ProducerInstances,ConsumerInstances,MaxDiskQuotaInMB"/>
+    <Parameter Name="FileShareWinFabEtw" Value="ConsumerType,ProducerInstance,IsEnabled,StoreConnectionString,UploadIntervalInMinutes,DataDeletionAgeInDays"/>
+    <Parameter Name="FileShareWinFabCrashDump" Value="ConsumerType,ProducerInstance,IsEnabled,StoreConnectionString,UploadIntervalInMinutes,DataDeletionAgeInDays"/>
+    <Parameter Name="FileShareWinFabPerfCtr" Value="ConsumerType,ProducerInstance,IsEnabled,StoreConnectionString,UploadIntervalInMinutes,DataDeletionAgeInDays"/>
+    <Parameter Name="WinFabEtlFile" Value="ProducerType,IsEnabled,EtlReadIntervalInMinutes,DataDeletionAgeInDays,TestOnlyFlushDataOnDispose"/>
+    <Parameter Name="WinFabCrashDump" Value="ProducerType,IsEnabled,FolderType"/>
+    <Parameter Name="WinFabPerfCtrFolder" Value="ProducerType,IsEnabled,FolderType,DataDeletionAgeInDays"/>
+    <Parameter Name="WindowsFabricDefaultEtl" Value="ProducerType,IsEnabled,WindowsFabricEtlType"/>
+    <Parameter Name="AzureBlob_WindowsFabricEtw" Value="ConsumerType,ProducerInstance,IsEnabled,StoreConnectionString,ContainerName"/>
+    <Parameter Name="WindowsFabricQueryEtl" Value="ProducerType,IsEnabled,WindowsFabricEtlType"/>
+    <Parameter Name="AzureTable_WindowsFabricEtw" Value="ConsumerType,ProducerInstance,IsEnabled,StoreConnectionString,TableNamePrefix"/>
+    <Parameter Name="WindowsFabricCrashDump" Value="ProducerType,IsEnabled,FolderType"/>
+    <Parameter Name="AzureBlob_WindowsFabricCrashDump" Value="ConsumerType,ProducerInstance,IsEnabled,StoreConnectionString,ContainerName"/>
+    <Parameter Name="WindowsFabricPerfCounter" Value="ProducerType,IsEnabled,FolderType"/>
+    <Parameter Name="AzureBlob_WindowsFabricPerfCounter" Value="ConsumerType,ProducerInstance,IsEnabled,StoreConnectionString,ContainerName"/>
+    <Parameter Name="FailoverManager" Value="ClusterStableWaitDuration,PeriodicStateScanInterval,PeriodicStateCleanupScanInterval,DeletedReplicaKeepDuration,MinActionRetryIntervalPerReplica,UserReplicaRestartWaitDuration,SystemReplicaRestartWaitDuration,ReplicaRestartWaitDuration,UserReplicaRestartWaitDuration,TargetReplicaSetSize,ExpectedClusterSize,MinReplicaSetSize"/>
+    <Parameter Name="ReconfigurationAgent" Value="ServiceApiHealthDuration,FabricUpgradeReplicaCloseCompleteCheckInterval,ReplicaUpMessageRetryInterval,RAUpgradeProgressCheckInterval,IsDeactivationInfoEnabled"/>
+    <Parameter Name="ClusterManager" Value="UpgradeStatusPollInterval,UpgradeHealthCheckInterval,FabricUpgradeStatusPollInterval,FabricUpgradeHealthCheckInterval,ReplicaRestartWaitDuration,TargetReplicaSetSize,MinReplicaSetSize"/>
+    <Parameter Name="NamingService" Value="ReplicaRestartWaitDuration,PartitionCount,TargetReplicaSetSize,MinReplicaSetSize"/>
+    <Parameter Name="ImageStoreService" Value="ReplicaRestartWaitDuration,TargetReplicaSetSize,MinReplicaSetSize"/>
+    <Parameter Name="HttpGateway" Value="VersionCheck,IsEnabled"/>
+    <Parameter Name="Management" Value="ImageStoreConnectionString"/>
+    <Parameter Name="PlacementAndLoadBalancing" Value="VerboseHealthReportLimit"/>
+    <Parameter Name="AzureBlobEtw" Value="ConsumerType,ProducerInstance,IsEnabled,StoreConnectionString,UploadIntervalInMinutes,ContainerName,DataDeletionAgeInDays"/>
+    <Parameter Name="AzureBlobCrashDump" Value="ConsumerType,ProducerInstance,IsEnabled,StoreConnectionString,UploadIntervalInMinutes,ContainerName,DataDeletionAgeInDays"/>
+    <Parameter Name="AzureBlobWinFabPerfCounter" Value="ConsumerType,ProducerInstance,IsEnabled,StoreConnectionString,UploadIntervalInMinutes,ContainerName,DataDeletionAgeInDays"/>
+    <Parameter Name="AzureTableWinFabEtwQueryable" Value="ConsumerType,ProducerInstance,IsEnabled,StoreConnectionString,TableNamePrefix,DataDeletionAgeInDays"/>
+    <Parameter Name="WinFabPerfCounter" Value="ProducerType,IsEnabled,FolderType,DataDeletionAgeInDays"/>
+    <Parameter Name="WinFabEtlFileQueryable" Value="ProducerType,IsEnabled,EtlReadIntervalInMinutes,DataDeletionAgeInDays,WindowsFabricEtlType"/>
+    <Parameter Name="TransactionalReplicator" Value="OptimizeLogForLowerDiskUsage"/>
+    <Parameter Name="FaultAnalysisService" Value="ReplicaRestartWaitDuration,TargetReplicaSetSize,MinReplicaSetSize"/>
+    <Parameter Name="UpgradeOrchestrationService" Value="ReplicaRestartWaitDuration,TargetReplicaSetSize,MinReplicaSetSize"/>
+  </Section>
+  <Section Name="RequiredParameters">
+  </Section>
+  <Section Name="SystemServicesForScale">
+    <Parameter Name="FailoverManager" Value="fabric:/System/FailoverManagerService" />
+    <Parameter Name="ClusterManager" Value="fabric:/System/ClusterManagerService" />
+    <Parameter Name="NamingService" Value="fabric:/System/NamingService" />
+    <Parameter Name="ImageStoreService" Value="fabric:/System/ImageStoreService" />
+    <Parameter Name="FaultAnalysisService" Value="fabric:/System/FAS" />
+    <Parameter Name="UpgradeOrchestrationService" Value="fabric:/System/UOS" />
+  </Section>
+</Settings>
