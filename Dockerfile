@@ -1,16 +1,16 @@
-FROM    microsoft/windowsservercore:10.0.14300.1030
+FROM    microsoft/windowsservercore
 
-EXPOSE  19080
+#Current Service Fabric version: 5.3.124.9494
 
 RUN     powershell -Command "Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser"
 
 RUN     mkdir C:\ServiceFabric
 
-COPY    ./src/Install.ps1 C:/ServiceFabric
-COPY    ./src/5.1.156.9590 C:/ServiceFabric/5.1.156.9590
+COPY    ./src/Install.5.3.124.9494.ps1 C:/ServiceFabric
+COPY    ./src/5.3.124.9494 C:/ServiceFabric/5.3.124.9494
 
 WORKDIR C:\\ServiceFabric
 
-RUN     cd
+RUN     powershell -Command .\Install.5.3.124.9494.ps1
 
-RUN     powershell -Command .\Install.ps1
+EXPOSE  19080

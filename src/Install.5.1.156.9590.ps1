@@ -1,7 +1,6 @@
 #Create an unsecured local development cluster
 
-#$Version = "5.1.156.9590"
-$Version = "5.3.124.9494"
+$Version = "5.1.156.9590"
 
 cd C:\ServiceFabric\$Version
 
